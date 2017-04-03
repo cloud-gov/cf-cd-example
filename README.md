@@ -23,6 +23,9 @@ To set up continuous deployment in your own project:
             * `CF_USERNAME`
             * `CF_PASSWORD`
         1. Ensure that your deployment system calls `deploy.sh`.
+* Deploy automatically.
+    * Since buildpack changes (such as security fixes) are only picked up when an application is `push`ed/`restage`d, your application should be automatically deployed on a regular schedule.
+    * On Travis CI, you can do this with [cron jobs](https://docs.travis-ci.com/user/cron-jobs/).
 
 ## Testing locally
 
