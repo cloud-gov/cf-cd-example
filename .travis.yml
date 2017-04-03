@@ -10,7 +10,7 @@ env:
 deploy:
   provider: script
   # https://github.com/travis-ci/travis-ci/issues/5538#issuecomment-265956466
-  script: chmod +x deploy.sh && deploy.sh
+  script: bash deploy.sh
   skip_cleanup: true
   on:
     branch: master
