@@ -14,9 +14,15 @@ To set up continuous deployment in your own project:
 
 * Copy the [deploy script](deploy.sh), and modify the variables at the top.
 * Ensure that you have an [application manifest](https://docs.cloudfoundry.org/devguide/deploy-apps/manifest.html).
-* Set up your continuous deployment system to call `deploy.sh`, and pass the following environment variables corresponding to a deployer user:
-    * `CF_USERNAME`
-    * `CF_PASSWORD`
+* Set up your continuous deployment system.
+    * If using Travis CI:
+        1. Copy the [`.travis.yml`](.travis.yml).
+        1. Update the `env` with your deployer user credentials. Make sure to [encrypt the password](https://docs.travis-ci.com/user/environment-variables#Defining-encrypted-variables-in-.travis.yml).
+    * If using something else:
+        1. Ensure that the following environment variables are set, corresponding to your deployer user:
+            * `CF_USERNAME`
+            * `CF_PASSWORD`
+        1. Ensure that your deployment system calls `deploy.sh`.
 
 ## Testing locally
 
