@@ -1,4 +1,4 @@
-# Example: Continuous Deployment (CD) to Cloud Foundry
+# Example: Continuous Deployment (CD) to Cloud Foundry [![Build Status](https://travis-ci.org/18F/cf-cd-example.svg?branch=master)](https://travis-ci.org/18F/cf-cd-example)
 
 This repository demonstrates how to continuously deploy a simple application from a continuous deployment system to Cloud Foundry. This example happens to use the following:
 
