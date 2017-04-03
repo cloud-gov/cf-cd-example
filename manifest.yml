@@ -1,0 +1,7 @@
+---
+applications:
+- name: travis-example
+  memory: 64MB
+  instances: 2
+  routes:
+  - route: travis-example.app.cloud.gov
