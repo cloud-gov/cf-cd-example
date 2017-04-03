@@ -1,6 +1,6 @@
 ---
 applications:
 # this should match deploy.sh
-- name: travis-example
+- name: cd-example
   memory: 64MB
   instances: 2

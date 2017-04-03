@@ -4,7 +4,7 @@ set -e
 
 ## CHANGE ME ##
 # this should match manifest.yml
-APP_NAME=travis-example
+APP_NAME=cd-example
 MANIFEST=manifest.yml
 API=https://api.fr.cloud.gov
 ORG=sandbox-gsa
