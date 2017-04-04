@@ -2,15 +2,21 @@ language: generic
 
 # general build configuration would go here
 
-env:
-  global:
-  - CF_USERNAME=464f9db1-79d8-4ab5-b25c-b579369df7e8
-  # encrypted CF_PASSWORD
-  - secure: LaIT2cMvZ23V2QGF1R/9uY2RO8+bvnW5gbapDDZi7/bQKdDvqzdrlGZE/XUf5+zxX1itow/2H7BVDfkMnXwsILD+CrjQQbM2kdC14G63wB2Psg6kPv8hxtc07aOB6mO/QJHw8umL3NAwksDt9EW0JxAGnWM3T+afbhlugAfL34m+DP5Poy/EaC4+FHjuh04tlHNPlhaYs6A5LKScwREHT6KMl2dy6Q4qWAK1LATAbDLXcyEYY0Xg32y8kOg8767PIqQsOLdEtpZt1CW95cj9ZCEHLViKIjNckX/MxC1ybdcb5+IMPT+9PXn6Ogd15R8Px2PrTcdygKs/BKngKlr0BB4QrdpaX8j51rX4O78C9E1vy6tN3Uus7lK9TzKmrGI0aveykScSGD9IICpg1pCEiQRrO1h+ovVGM5pd0Hq47b0Z+nZR2ne+Csogle22TceCLnoX2Oq/zILIOk4I9eAemHCV6zuymQE+mOSSSi9IjVELYwn917NSOsR+fUxMK04V15sNLLY1DyceSlslLhXWQKzIyaPSVfglia/3uvsPjCLtGqq7W5gY7JefdyXB/xTf13vfAcwefQ8JvncfjRT4S2/6rMzKTu+UvsZ2bO+hD8ppt5WpRr3doD/RP4x402EkOCV/TCxTvOvRwMnXE38naixkBvLlGRykK2l9zpMMA6o=
 deploy:
-  provider: script
-  # https://github.com/travis-ci/travis-ci/issues/5538#issuecomment-265956466
-  script: bash deploy.sh
-  skip_cleanup: true
+  provider: cloudfoundry
+  edge:
+    source: 18F/dpl
+    branch: autopilot
+  username: 464f9db1-79d8-4ab5-b25c-b579369df7e8
+  password:
+    secure: PUkjC0tqq/briz0gy+Qldy/RZTPvKD5NmARtMgHnw0xrIGLI0jpy7eUdKo3molNjaGauoeXHlFvCsFiv1MBvcx833iTCxgGrouGgAtbJTHOwYXXtG4mKGiMiL16Hzkj/n2EITHGEOYdlCqk+UcsWRPNF6jrnath+HNCGFWRETO9zHZg5r/D/8ooZwryq2GQnaMFZaPoRuUQ+fsmsfc6Y72xT5hxEf/AsqQ+y/ZfQEl6S3WSO5iLZKKWKHaeetafiNgCPI/XDHSADrJ7qLVQ66qHO3U5CLurAoe0O1E0MKP5NHEXlQ915pfq+Sb7tLIgsIIrEnjg2eVvCgJfPzI6zEUfCBvcUXrpC2I5sH+CKg6cxJ+q2vZ4Dp2nODDDgyTziKInKgOxVwldsLT4Lv9hqR0w6WQ6P7UugXl4MX7/6gC6KlIjsOYknV99O3qSza3H6VlF2WG/zFAXGrDt3sN1dTiW8GClsosNR6/Xx7guzmtFqO9PbvgTmckEvbXcUfjkvpLM8Ccs4T1PGeuqAqJfhTOYKzLFtbJQrl0/EuaM4utKWA99/0JW3jwQKnUvdGYRX8C7zvD+WRcacQoQRS6S0wwTHPPmSKvQbdr9lnsfr93jHZ//Mkx/8MWxbvv7TpRFruAssRs2Z3/+if8m+eMgQOIUs0B+Yy5Vi8G83eUiru84=
+  api: https://api.fr.cloud.gov
+  organization: sandbox-gsa
+  space: aidan.feldman
+  manifest: manifest.yml
+  zero_downtime: true
+  app_name: cd-example
   on:
-    branch: master
+    # TODO change back
+    # branch: master
+    all_branches: true
